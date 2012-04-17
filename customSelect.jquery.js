@@ -7,7 +7,7 @@
 	  
 			var currentSelected = $(this).find(':selected');
 			if ( html == null )
-				html = '';
+				html = (options && options.empty ? options.empty : '');
 			$(this).after('<span class="customStyleSelectBox"><span class="customStyleSelectBoxInner">'+html+'</span></span>').css({position:'absolute', opacity:0,fontSize:$(this).next().css('font-size')});
 			var selectBoxSpan = $(this).next();
 			var selectBoxWidth = parseInt($(this).width()) - parseInt(selectBoxSpan.css('padding-left')) -parseInt(selectBoxSpan.css('padding-right'));			
