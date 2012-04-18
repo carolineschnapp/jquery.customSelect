@@ -1,16 +1,16 @@
 (function($){
  $.fn.extend({
- 
+
  	customSelect : function(options) {
 	  if(!$.browser.msie || ($.browser.msie&&$.browser.version>6)){
 	  return this.each(function() {
-	  
+
 			var currentSelected = $(this).find(':selected');
-			if ( html == null )
-				html = (options && options.empty ? options.empty : '');
+			var html = currentSelected.html();
+			if(!html){ html='&nbsp;'; }
 			$(this).after('<span class="customStyleSelectBox"><span class="customStyleSelectBoxInner">'+html+'</span></span>').css({position:'absolute', opacity:0,fontSize:$(this).next().css('font-size')});
 			var selectBoxSpan = $(this).next();
-			var selectBoxWidth = parseInt($(this).width()) - parseInt(selectBoxSpan.css('padding-left')) -parseInt(selectBoxSpan.css('padding-right'));			
+			var selectBoxWidth = parseInt($(this).width()) - parseInt(selectBoxSpan.css('padding-left')) -parseInt(selectBoxSpan.css('padding-right'));
 			var selectBoxSpanInner = selectBoxSpan.find(':first-child');
 			selectBoxSpan.css({display:'inline-block'});
 			selectBoxSpanInner.css({width:selectBoxWidth, display:'inline-block'});
@@ -20,7 +20,7 @@
 			selectBoxSpanInner.text($(this).find(':selected').text()).parent().addClass('changed');
 				// Thanks to Juarez Filho & PaddyMurphy
 			});
-			
+
 	  });
 	  }
 	}
