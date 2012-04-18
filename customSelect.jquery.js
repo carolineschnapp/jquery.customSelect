@@ -1,9 +1,9 @@
 (function($){
  $.fn.extend({
 
- 	customSelect : function(options) {
-	  if(!$.browser.msie || ($.browser.msie&&$.browser.version>6)){
-	  return this.each(function() {
+	customSelect : function(options) {
+		if(!$.browser.msie || ($.browser.msie&&$.browser.version>6)){
+		return this.each(function() {
 
 			var currentSelected = $(this).find(':selected');
 			var html = currentSelected.html();
@@ -16,13 +16,13 @@
 			selectBoxSpanInner.css({width:selectBoxWidth, display:'inline-block'});
 			var selectBoxHeight = parseInt(selectBoxSpan.height()) + parseInt(selectBoxSpan.css('padding-top')) + parseInt(selectBoxSpan.css('padding-bottom'));
 			$(this).height(selectBoxHeight).change(function(){
-				// selectBoxSpanInner.text($(this).val()).parent().addClass('changed');   This was not ideal
+				// selectBoxSpanInner.text($(this).val()).parent().addClass('changed');  This was not ideal
 			selectBoxSpanInner.text($(this).find(':selected').text()).parent().addClass('changed');
 				// Thanks to Juarez Filho & PaddyMurphy
 			});
 
-	  });
-	  }
+		});
+		}
 	}
  });
 })(jQuery);
